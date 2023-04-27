@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - /data/mongo:/data/db
+  api:
+    build: .
+    ports:
+      - '8080:3000'
+    volumes:
+      - ./:/app:ro
+      - /app/node_modules
+    env_file:
+      - ./.env
+    depends_on:
+      - db

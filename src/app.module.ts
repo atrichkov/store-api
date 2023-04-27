@@ -5,8 +5,6 @@ import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-console.log(ConfigModule.forRoot());
-
 @Module({
   imports: [
     ConfigModule.forRoot({
